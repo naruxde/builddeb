@@ -29,4 +29,4 @@ cd /tmp/deps
 mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' $WORK/$PACKAGE/debian/control
 cd "$WORK/$PACKAGE"
 
-su -c "${BUILD_CMD" "${BUILD_UNAME}"
+su -c "${BUILD_CMD}" "${BUILD_UNAME}"
