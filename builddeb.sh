@@ -53,9 +53,10 @@ exec docker run \
     -v $WORK:/work \
     -v $HOME/.gnupg:/root/gnupg:ro \
     -v $HOME/.gitconfig:/etc/skel/.gitconfig:ro \
-    -e PACKAGE=$PACKAGE \
-    -e BUILD_UNAME=$USERNAME \
-    -e BUILD_UID=$UID \
+    -e PACKAGE="$PACKAGE" \
+    -e BUILD_CMD="$BUILD_CMD" \
+    -e BUILD_UNAME="$USERNAME" \
+    -e BUILD_UID="$UID" \
     -e BUILD_GNAME="$(id -g -n)" \
     -e BUILD_GID="$(id -g)" \
     "${CONTAINER}"
