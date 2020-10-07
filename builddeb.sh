@@ -32,7 +32,7 @@ if [ $# -lt 1 ]; then
     PACKAGE="$(basename "$PWD")"
 else
     WORK="$(realpath "${@: -1}/..")"
-    PACKAGE="$(basename "${@: -1}")"
+    PACKAGE="$(basename "$(realpath "${@: -1}")")"
 fi
 
 if [ $# -lt 2 ]; then
