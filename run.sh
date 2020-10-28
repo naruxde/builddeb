@@ -16,8 +16,8 @@ if [[ ! -d "$WORK/$PACKAGE" ]] ; then
 fi
 
 # create a user with the same name and gid as the calling user
-groupadd -g ${BUILD_GID} ${BUILD_GNAME}
-useradd -l -m -s /bin/bash -u ${BUILD_UID} -g ${BUILD_GNAME} ${BUILD_UNAME}
+groupadd -g "$BUILD_GID" "$BUILD_GNAME"
+useradd -l -m -s /bin/bash -u "$BUILD_UID" -g "$BUILD_GNAME" "$BUILD_UNAME"
 cp -r /root/gnupg "/home/${BUILD_UNAME}/.gnupg"
 chown -R "${BUILD_UNAME}:${BUILD_GNAME}" "/home/${BUILD_UNAME}/.gnupg"
 

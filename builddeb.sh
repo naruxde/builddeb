@@ -50,9 +50,9 @@ fi
 exec docker run \
     --rm \
     --cpu-shares 512 \
-    -v $WORK:/work \
-    -v $HOME/.gnupg:/root/gnupg:ro \
-    -v $HOME/.gitconfig:/etc/skel/.gitconfig:ro \
+    -v "$WORK:/work" \
+    -v "$HOME/.gnupg:/root/gnupg:ro" \
+    -v "$HOME/.gitconfig:/etc/skel/.gitconfig:ro" \
     -e PACKAGE="$PACKAGE" \
     -e BUILD_CMD="$BUILD_CMD" \
     -e BUILD_UNAME="$USER" \
