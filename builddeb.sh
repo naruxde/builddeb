@@ -55,7 +55,7 @@ exec docker run \
     -v $HOME/.gitconfig:/etc/skel/.gitconfig:ro \
     -e PACKAGE="$PACKAGE" \
     -e BUILD_CMD="$BUILD_CMD" \
-    -e BUILD_UNAME="$USERNAME" \
+    -e BUILD_UNAME="$USER" \
     -e BUILD_UID="$UID" \
     -e BUILD_GNAME="$(id -g -n)" \
     -e BUILD_GID="$(id -g)" \
