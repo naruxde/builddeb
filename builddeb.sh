@@ -41,10 +41,10 @@ else
     BUILD_CMD="$1"
 fi
 
-if [ -z ${FLAVOUR} ]; then
+if [ -z "${FLAVOR}" ]; then
     CONTAINER="builddeb";
 else
-    CONTAINER="builddeb-${FLAVOUR}";
+    CONTAINER="builddeb-${FLAVOR}";
 fi
 
 exec docker run \
