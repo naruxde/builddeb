@@ -3,6 +3,7 @@
 set -x
 set -e
 
+export LC_ALL=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
 
 # use eatmydata to prevent excessive sync calls from package install
