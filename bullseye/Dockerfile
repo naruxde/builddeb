@@ -4,10 +4,13 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # install build basics
 RUN apt-get update \
+&& apt-get dist-upgrade -y \
 && apt-get -y install \
+	apt-utils \
 	build-essential \
 	fakeroot \
 	devscripts \
+	equivs \
 	git-buildpackage \
 	eatmydata \
 && apt-get clean \
