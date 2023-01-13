@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  builddeb:
+    build:
+      context: ../
+      dockerfile: revpi-bullseye/Dockerfile
+      args:
+        flavor: revpi-bullseye
