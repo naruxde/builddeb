@@ -19,5 +19,5 @@ RUN apt-get update \
 RUN install -d /work
 RUN install -d -m 0700 /root/gnupg
 
-COPY ../run.sh /
+COPY ./run.sh /
 CMD ["/run.sh"]
