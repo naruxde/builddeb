@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  builddeb:
+    build:
+      context: ../
+      dockerfile: bookworm/Dockerfile
+      args:
+        flavor: bookworm
