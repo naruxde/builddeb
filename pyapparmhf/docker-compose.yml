@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  builddeb:
+    build:
+      context: ../
+      dockerfile: pyapparmhf/Dockerfile
+      args:
+        flavor: pyapparmhf
