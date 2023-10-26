@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  builddeb:
+    build:
+      context: ../
+      dockerfile: revapp64/Dockerfile
+      args:
+        flavor: revapp64
