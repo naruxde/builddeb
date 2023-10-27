@@ -24,6 +24,9 @@ cd /tmp/deps
 mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' "$WORK/$PACKAGE/debian/control"
 cd "$WORK/$PACKAGE"
 
+# The installation is done in the Dockerfile, so it is always in the '/root'
+[ -d /root/.cargo/bin ] && cp /root/.cargo/bin/* /usr/bin
+
 # Check for argument '--git-export-dir' to copy artifacts to work dir after BUILD_CMD
 # The regex will find a pure path or a path in lead characters, which can also contain spaces.
 GIT_EXPORT_DIR=$(echo ${BUILD_CMD} | grep -oP -- "(?<=--git-export-dir=)((['\"].+?['\"])+|[^ ]+)" || true)
