@@ -2,19 +2,15 @@ FROM arm64v8/debian:bookworm
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Needed to add apt key
-RUN apt-get update \
-&& apt-get -y install \
-	gnupg
+ADD "https://gitlab.com/revolutionpi/revpi-repo/-/raw/13bed4f965efdadcc06e7d5dc274715f88f6a182/revpi/revpi.sources" etc/apt/sources.list.d/revpi.sources
+ADD "https://gitlab.com/revolutionpi/revpi-repo/-/raw/13bed4f965efdadcc06e7d5dc274715f88f6a182/revpi/revpi.gpg" /usr/share/keyrings/revpi.gpg
 
-# XXX: Wait for revpi-repo for Bookworm!
-#ADD "https://raw.githubusercontent.com/RevolutionPi/imagebakery/4081bdde108259e97b04b50b7afbd50b23908a56/templates/revpi.list" etc/apt/sources.list.d/revpi.list
-#ADD "https://github.com/RevolutionPi/imagebakery/raw/master/templates/revpi.gpg" revpi.gpg
-#RUN apt-key add revpi.gpg \
-#&& rm revpi.gpg
+# The revpi.gpg must be readable by group and others
+RUN chmod go+r /usr/share/keyrings/revpi.gpg
 
 # install build basics
-RUN apt-get dist-upgrade -y \
+RUN apt-get update \
+&& apt-get dist-upgrade -y \
 && apt-get -y install \
 	apt-utils \
 	build-essential \
