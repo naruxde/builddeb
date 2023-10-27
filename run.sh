@@ -25,7 +25,7 @@ mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-in
 cd "$WORK/$PACKAGE"
 
 if [[ "$DOCKER_HOST_OSTYPE" == "darwin"* ]]; then
-    cp -r /root/gnupg /root/.gnupg
+    ln -s /root/gnupg /root/.gnupg
     
     # On macOS we can just start the build and get the files with macOS owner
     ${BUILD_CMD}
