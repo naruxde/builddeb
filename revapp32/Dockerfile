@@ -16,6 +16,10 @@ RUN apt-get update \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
+# Install latest rust environment
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs --output rustup.sh \
+&& sh rustup.sh -y
+
 RUN install -d /work
 RUN install -d -m 0700 /root/gnupg
 
