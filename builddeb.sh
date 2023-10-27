@@ -59,4 +59,5 @@ exec docker run \
     -e BUILD_UID="$UID" \
     -e BUILD_GNAME="$(id -g -n)" \
     -e BUILD_GID="$(id -g)" \
+    -e DOCKER_HOST_OSTYPE="$OSTYPE" \
     "${CONTAINER}"

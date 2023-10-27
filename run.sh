@@ -24,7 +24,7 @@ cd /tmp/deps
 mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' "$WORK/$PACKAGE/debian/control"
 cd "$WORK/$PACKAGE"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$DOCKER_HOST_OSTYPE" == "darwin"* ]]; then
     cp -r /root/gnupg /root/.gnupg
     
     # On macOS we can just start the build and get the files with macOS owner
