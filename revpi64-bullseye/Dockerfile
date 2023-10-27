@@ -13,7 +13,8 @@ RUN apt-key add revpi.gpg \
 && rm revpi.gpg
 
 # install build basics
-RUN apt-get dist-upgrade -y \
+RUN apt-get update \
+&& apt-get dist-upgrade -y \
 && apt-get -y install \
 	apt-utils \
 	build-essential \
