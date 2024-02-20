@@ -24,6 +24,10 @@ cd /tmp/deps
 mk-build-deps --install --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends --yes' "$WORK/$PACKAGE/debian/control"
 cd "$WORK/$PACKAGE"
 
+# Check for argument '--git-export-dir' to copy artifacts to work dir after BUILD_CMD
+# The regex will find a pure path or a path in lead characters, which can also contain spaces.
+GIT_EXPORT_DIR=$(echo ${BUILD_CMD} | grep -oP -- "(?<=--git-export-dir=)((['\"].+?['\"])+|[^ ]+)")
+
 if [[ "$DOCKER_HOST_OSTYPE" == "darwin"* ]]; then
     ln -s /root/gnupg /root/.gnupg
     
@@ -38,4 +42,11 @@ else
 
     # And start the package build as the created user
     su -c "${BUILD_CMD}" "${BUILD_UNAME}"
+fi
+
+# For visual style, we deactivate the debug output of bash at this point
+set +x
+if [ -n "${GIT_EXPORT_DIR}" ]; then
+    echo "INFO: Found git-export-dir argument, copy package files to ${WORK}"
+    find "${GIT_EXPORT_DIR}" -type f -exec cp {} ${WORK} \;
 fi
