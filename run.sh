@@ -26,7 +26,7 @@ cd "$WORK/$PACKAGE"
 
 # Check for argument '--git-export-dir' to copy artifacts to work dir after BUILD_CMD
 # The regex will find a pure path or a path in lead characters, which can also contain spaces.
-GIT_EXPORT_DIR=$(echo ${BUILD_CMD} | grep -oP -- "(?<=--git-export-dir=)((['\"].+?['\"])+|[^ ]+)")
+GIT_EXPORT_DIR=$(echo ${BUILD_CMD} | grep -oP -- "(?<=--git-export-dir=)((['\"].+?['\"])+|[^ ]+)" || true)
 
 if [[ "$DOCKER_HOST_OSTYPE" == "darwin"* ]]; then
     ln -s /root/gnupg /root/.gnupg
