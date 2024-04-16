@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM docker.io/debian:buster
 
 ARG DEBIAN_FRONTEND=noninteractive
 

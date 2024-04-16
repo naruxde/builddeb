@@ -1,4 +1,4 @@
-FROM tianon/raspbian:bullseye
+FROM docker.io/tianon/raspbian:bullseye
 
 ARG DEBIAN_FRONTEND=noninteractive
 

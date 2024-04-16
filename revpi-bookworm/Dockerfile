@@ -1,4 +1,4 @@
-FROM tianon/raspbian:bookworm
+FROM docker.io/tianon/raspbian:bookworm
 
 ARG DEBIAN_FRONTEND=noninteractive
 

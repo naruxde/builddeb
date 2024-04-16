@@ -1,4 +1,4 @@
-FROM tianon/raspbian:buster
+FROM docker.io/tianon/raspbian:buster
 
 ARG DEBIAN_FRONTEND=noninteractive
 

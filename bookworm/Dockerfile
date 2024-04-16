@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM docker.io/debian:bookworm
 
 ARG DEBIAN_FRONTEND=noninteractive
 
