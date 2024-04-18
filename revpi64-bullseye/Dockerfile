@@ -7,8 +7,8 @@ RUN apt-get update \
 && apt-get -y install \
 	gnupg
 
-ADD "https://raw.githubusercontent.com/RevolutionPi/imagebakery/4081bdde108259e97b04b50b7afbd50b23908a56/templates/revpi.list" etc/apt/sources.list.d/revpi.list
-ADD "https://github.com/RevolutionPi/imagebakery/raw/master/templates/revpi.gpg" revpi.gpg
+ADD "https://gitlab.com/revolutionpi/imagebakery/-/raw/01fa3cfcca261502a79b414eabd2bfd2d2f9598d/templates/revpi.list" etc/apt/sources.list.d/revpi.list
+ADD "https://gitlab.com/revolutionpi/imagebakery/-/raw/master/templates/revpi.gpg" revpi.gpg
 RUN apt-key add revpi.gpg \
 && rm revpi.gpg
 

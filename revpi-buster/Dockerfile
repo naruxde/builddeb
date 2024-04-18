@@ -2,8 +2,8 @@ FROM docker.io/tianon/raspbian:buster
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ADD "https://raw.githubusercontent.com/RevolutionPi/imagebakery/cdb7ceab47ca5f7b3c21e5708ed6346db67e1697/templates/revpi.list" etc/apt/sources.list.d/revpi.list
-ADD "https://github.com/RevolutionPi/imagebakery/raw/master/templates/revpi.gpg" revpi.gpg
+ADD "https://gitlab.com/revolutionpi/imagebakery/-/raw/01fa3cfcca261502a79b414eabd2bfd2d2f9598d/templates/revpi.list" etc/apt/sources.list.d/revpi.list
+ADD "https://gitlab.com/revolutionpi/imagebakery/-/raw/master/templates/revpi.gpg" revpi.gpg
 RUN apt-key add revpi.gpg \
 && rm revpi.gpg
 
