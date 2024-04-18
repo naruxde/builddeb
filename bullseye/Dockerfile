@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM docker.io/debian:bullseye
 
 ARG DEBIAN_FRONTEND=noninteractive
 
