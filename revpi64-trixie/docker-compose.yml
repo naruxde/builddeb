@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  builddeb:
+    build:
+      context: ../
+      dockerfile: revpi64-trixie/Dockerfile
+      args:
+        flavor: revpi64-trixie

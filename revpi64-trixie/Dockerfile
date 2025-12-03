@@ -1,0 +1,29 @@
+FROM docker.io/debian:trixie
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+ADD "https://gitlab.com/revolutionpi/revpi-repo/-/raw/0df6b39beb16258389ecba9d00569cf48e04d91b/revpi/revpi.sources" etc/apt/sources.list.d/revpi.sources
+ADD "https://gitlab.com/revolutionpi/revpi-repo/-/raw/0df6b39beb16258389ecba9d00569cf48e04d91b/revpi/revpi.gpg" /usr/share/keyrings/revpi.gpg
+
+# The revpi.gpg must be readable by group and others
+RUN chmod go+r /usr/share/keyrings/revpi.gpg
+
+# install build basics
+RUN apt-get update \
+&& apt-get dist-upgrade -y \
+&& apt-get -y install \
+	apt-utils \
+	build-essential \
+	fakeroot \
+	devscripts \
+	equivs \
+	git-buildpackage \
+	eatmydata \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN install -d /work
+RUN install -d -m 0700 /root/gnupg
+
+COPY ./run.sh /
+CMD ["/run.sh"]
